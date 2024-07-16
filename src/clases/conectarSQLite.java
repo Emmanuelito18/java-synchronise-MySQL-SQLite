@@ -19,7 +19,7 @@ public class conectarSQLite {
     /**
      * Este método se utiliza para realizar la conexión a la base de datos SQLite
      */
-    public void conectarInterna(){
+    public void conectar(){
         try{
             connect=DriverManager.getConnection(url);
             if(connect!=null){
@@ -35,7 +35,7 @@ public class conectarSQLite {
     /**
      * Este método se utiliza para cerrar la conexión a la base de datos SQLite
      */
-    public void cerrarInterna(){
+    public void desconectar(){
         try{
             connect.close();//cierra la conexión a la base de datos
             System.out.println("se ha cerrado la conexion exitosamente");
@@ -65,7 +65,7 @@ public class conectarSQLite {
         
     /*public static void main(String[] args){
         conectarSQLite conexion=new conectarSQLite();
-        conexion.conectarInterna();
-        conexion.cerrarInterna();
+        conexion.conectar();
+        conexion.desconectar();
     }*/
 }
