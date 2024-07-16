@@ -62,4 +62,10 @@ public class conectarSQLite {
         
     }
     //</editor-fold>
+        
+    /*public static void main(String[] args){
+        conectarSQLite conexion=new conectarSQLite();
+        conexion.conectarInterna();
+        conexion.cerrarInterna();
+    }*/
 }
