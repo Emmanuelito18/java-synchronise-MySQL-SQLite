@@ -30,4 +30,18 @@ public class conectarSQLite {
         }
     }
     //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Cierra la conexion de la base de datos">
+    /**
+     * Este método se utiliza para cerrar la conexión a la base de datos SQLite
+     */
+    public void cerrarInterna(){
+        try{
+            connect.close();//cierra la conexión a la base de datos
+            System.out.println("se ha cerrado la conexion exitosamente");
+        }catch(SQLException error){
+            error.printStackTrace();
+        }
+    }
+    //</editor-fold>
 }
