@@ -44,4 +44,22 @@ public class conectarSQLite {
         }
     }
     //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="acciones de la base de datos">
+    public void insertar(){
+        
+    }
+    
+    public void seleccionar(){
+    
+    }
+    
+    public void eliminar(){
+    
+    }
+    
+    public void actualizar(){
+        
+    }
+    //</editor-fold>
 }
