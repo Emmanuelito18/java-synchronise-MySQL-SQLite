@@ -77,8 +77,14 @@ public class conectarSQLite {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Elimina información de la base de datos">
-    public void eliminar(){
-        
+    public void eliminar(int id){
+        try{
+            PreparedStatement eliminar=connect.prepareStatement("DELETE FROM juegos WHERE id=?");
+            eliminar.setInt(1, id);
+            eliminar.executeUpdate();
+        }catch(SQLException error){
+            error.printStackTrace();
+        }
     }
     //</editor-fold>
     
