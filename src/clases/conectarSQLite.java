@@ -45,22 +45,39 @@ public class conectarSQLite {
     }
     //</editor-fold>
     
-    //<editor-fold defaultstate="collapsed" desc="acciones de la base de datos">
-    public void insertar(){
+    //<editor-fold defaultstate="collapsed" desc="Acciones de la base de datos">
+    
+    //<editor-fold defaultstate="collapsed" desc="Mete información en la base de datos">
+    public void insertar(String nombreJuego, String plataforma){
+        try{
+            PreparedStatement insertar=connect.prepareStatement("INSERT INTO juegos COLUMS(nombreJuego,plataforma) VALUES(?,?)");
+            insertar.setString(1, nombreJuego);
+            insertar.setString(2, plataforma);
+            insertar.executeUpdate();
+        }catch(SQLException error){
+            error.printStackTrace();
+        }
+    }
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Muestra información de la base de datos">
+    public void seleccionar(){
         
     }
+    //</editor-fold>
     
-    public void seleccionar(){
-    
-    }
-    
+    //<editor-fold defaultstate="collapsed" desc="Elimina información de la base de datos">
     public void eliminar(){
-    
+        
     }
+    //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Actualiza información en las base de datos">
     public void actualizar(){
         
     }
+    //</editor-fold>
+    
     //</editor-fold>
         
     /*public static void main(String[] args){
