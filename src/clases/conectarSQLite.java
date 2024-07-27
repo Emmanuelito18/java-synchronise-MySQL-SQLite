@@ -62,7 +62,17 @@ public class conectarSQLite {
     
     //<editor-fold defaultstate="collapsed" desc="Muestra información de la base de datos">
     public void seleccionar(){
-        
+        try{
+            PreparedStatement seleccionar=connect.prepareStatement("SELECT * FROM juegos");
+            ResultSet resultado=seleccionar.executeQuery();
+            while(resultado.next()){
+                System.out.println("ID: "+resultado.getInt("id"));
+                System.out.println("Nombre del juego: "+resultado.getString("nombre"));
+                System.out.println("Plataforma: "+resultado.getString("plataforma"));
+            }
+        }catch(SQLException error){
+            error.printStackTrace();
+        }
     }
     //</editor-fold>
     
