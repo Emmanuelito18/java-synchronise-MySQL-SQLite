@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package clases;
 
 /**
- *
+ *Esta clase se utiliza para manejar la conexión y operaciones de la 
+ * base de datos MySQL
  * @author Emmanuel
  */
 public class conectarMySQL {

@@ -9,7 +9,8 @@ import java.sql.SQLException;
 //</editor-fold>
 
 /**
- *Esta clase se utiliza para manejar la conexión a la base de datos SQLite
+ *Esta clase se utiliza para manejar la conexión y operaciones de la
+ * base de datos SQLite
  * @author Emmanuel
  */
 public class conectarSQLite {
