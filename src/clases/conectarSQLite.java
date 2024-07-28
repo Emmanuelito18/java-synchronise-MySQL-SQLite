@@ -74,7 +74,7 @@ public class conectarSQLite {
     public void seleccionar(){
         try{
             PreparedStatement seleccionar=connect.prepareStatement("SELECT * FROM juegos");
-            ResultSet resultado=seleccionar.executeQuery();
+            ResultSet resultado=seleccionar.executeQuery();//Ejecuta la sentencia para mostrar la información de la base de datos
             while(resultado.next()){
                 System.out.println("ID: "+resultado.getInt("id"));
                 System.out.println("Nombre del juego: "+resultado.getString("nombre"));
