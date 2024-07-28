@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author Emmanuel
  */
 public class conectarSQLite {
-    String url="jdbc:sqlite:src\\baseDatos\\pruebaSQLite.db";//Establece el url de la base de datos
+    private String url="jdbc:sqlite:src\\baseDatos\\pruebaSQLite.db";//Establece el url de la base de datos
     Connection connect;//crea una variable de tipo Connection, se utilizará para realizar la conexión
     //<editor-fold defaultstate="collapsed" desc="conexion de la base de datos">
     /**
