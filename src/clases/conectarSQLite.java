@@ -90,7 +90,7 @@ public class conectarSQLite {
     /**
      * Este método se utiliza para eliminar registros de la base de datos SQLite,
      * la información la elimina de la tabla juegos según el id del registro
-     * @param id este parámetro es el número del registro que se utiliza como identificación
+     * @param id este parámetro se utliza para eliminar registros en la base de datos
      */
     public void eliminar(int id){
         try{
@@ -104,13 +104,20 @@ public class conectarSQLite {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Actualiza información en las base de datos">
+    /**
+     * Este método se utiliza para realizar actualizaciones de registros en la base de datos SQLite
+     * en la tabla juegos
+     * @param nombreJuego Este parámetro se utiliza para llenar el campo de nombreJuego
+     * @param plataforma Este parámetro se utilza para llenar el campo de la plataforma
+     * @param id Este parámetro se utiliza para buscar el registro a actualizar
+     */
     public void actualizar(String nombreJuego, String plataforma, int id){
         try{
             PreparedStatement actualizar=connect.prepareStatement("UPDATE juegos SET nombre=?,plataforma=? WHERE id=?");
-            actualizar.setString(1, nombreJuego);
-            actualizar.setString(2, plataforma);
-            actualizar.setInt(3, id);
-            actualizar.executeUpdate();
+            actualizar.setString(1, nombreJuego);//Hace la actualización del nombre del juego
+            actualizar.setString(2, plataforma);//Hace la actualización de la plataforma 
+            actualizar.setInt(3, id);//Hace la búsqueda del número 
+            actualizar.executeUpdate();//Hace la actualización de registros en la base de datos
         }catch(SQLException error){
             error.printStackTrace();
         }
