@@ -50,7 +50,7 @@ public class conectarSQLite {
     //<editor-fold defaultstate="collapsed" desc="Mete información en la base de datos">
     /**
      * Este método se utliza para meter información en la base de datos SQLite
-     * la información la mete enla tabla juegos
+     * la información la mete en la tabla juegos
      * @param nombreJuego este parámetro se utiliza para ser introducido como valor en la base de datos
      * @param plataforma este parámetro se utiliza para ser introducido como valor en la base de datos
      */
@@ -68,7 +68,7 @@ public class conectarSQLite {
     
     //<editor-fold defaultstate="collapsed" desc="Muestra información de la base de datos">
     /**
-     * Este método se utiliza para mostrar la información que hay en la base de datos.
+     * Este método se utiliza para mostrar la información que hay en la base de datos SQLite de la tabla juegos
      * Este método no recibe parámetros
      */
     public void seleccionar(){
@@ -87,11 +87,16 @@ public class conectarSQLite {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Elimina información de la base de datos">
+    /**
+     * Este método se utiliza para eliminar registros de la base de datos SQLite,
+     * la información la elimina de la tabla juegos según el id del registro
+     * @param id este parámetro es el número del registro que se utiliza como identificación
+     */
     public void eliminar(int id){
         try{
             PreparedStatement eliminar=connect.prepareStatement("DELETE FROM juegos WHERE id=?");
-            eliminar.setInt(1, id);
-            eliminar.executeUpdate();
+            eliminar.setInt(1, id);//Recibe el id del registro a eliminar de tabla de la base de datos SQLite
+            eliminar.executeUpdate();//Ejecuta la eliminación del registro en la base de datos SQLite
         }catch(SQLException error){
             error.printStackTrace();
         }
