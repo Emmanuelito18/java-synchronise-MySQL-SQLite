@@ -89,8 +89,16 @@ public class conectarSQLite {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Actualiza información en las base de datos">
-    public void actualizar(){
-        
+    public void actualizar(String nombreJuego, String plataforma, int id){
+        try{
+            PreparedStatement actualizar=connect.prepareStatement("UPDATE juegos SET nombre=?,plataforma=? WHERE id=?");
+            actualizar.setString(1, nombreJuego);
+            actualizar.setString(2, plataforma);
+            actualizar.setInt(3, id);
+            actualizar.executeUpdate();
+        }catch(SQLException error){
+            error.printStackTrace();
+        }
     }
     //</editor-fold>
     
