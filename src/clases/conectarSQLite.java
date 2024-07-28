@@ -67,6 +67,10 @@ public class conectarSQLite {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Muestra información de la base de datos">
+    /**
+     * Este método se utiliza para mostrar la información que hay en la base de datos.
+     * Este método no recibe parámetros
+     */
     public void seleccionar(){
         try{
             PreparedStatement seleccionar=connect.prepareStatement("SELECT * FROM juegos");
