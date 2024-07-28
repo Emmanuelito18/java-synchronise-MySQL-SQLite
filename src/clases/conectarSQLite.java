@@ -48,12 +48,18 @@ public class conectarSQLite {
     //<editor-fold defaultstate="collapsed" desc="Acciones de la base de datos">
     
     //<editor-fold defaultstate="collapsed" desc="Mete información en la base de datos">
+    /**
+     * Este método se utliza para meter información en la base de datos SQLite
+     * la información la mete enla tabla juegos
+     * @param nombreJuego este parámetro se utiliza para ser introducido como valor en la base de datos
+     * @param plataforma este parámetro se utiliza para ser introducido como valor en la base de datos
+     */
     public void insertar(String nombreJuego, String plataforma){
         try{
             PreparedStatement insertar=connect.prepareStatement("INSERT INTO juegos COLUMS(nombreJuego,plataforma) VALUES(?,?)");
-            insertar.setString(1, nombreJuego);
-            insertar.setString(2, plataforma);
-            insertar.executeUpdate();
+            insertar.setString(1, nombreJuego);//Hace la inserción del nombre del juego en la base de datos
+            insertar.setString(2, plataforma);//Hace la inserción de la plataforma en la base de datos
+            insertar.executeUpdate();//Hace la inserción del registro en la base de datos
         }catch(SQLException error){
             error.printStackTrace();
         }
