@@ -1,6 +1,6 @@
 package clases;
 
-//<editor-fold defaultstate="collapsed" desc="librerias para manejar las conexiones de la base de datos">
+//<editor-fold defaultstate="collapsed" desc="librerias para manejar las conexiones de la base de datos SQLite">
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
