@@ -1,7 +1,12 @@
 package clases;
 
 //<editor-fold defaultstate="collapsed" desc="Librerias para la base de datos MySQL">
-
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 //</editor-fold>
 
 /**
