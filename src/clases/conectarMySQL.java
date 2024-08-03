@@ -21,7 +21,13 @@ public class conectarMySQL {
     Connection conexion=null;//Se utilizará para gestionar la apertura y cierre de la conexión a la base de datos
     //<editor-fold defaultstate="collapsed" desc="Conexión de la base de datos">
     public void conectar(){
-        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");//Obtiene el conector para la conexión a la base de datos
+            conexion=DriverManager.getConnection(url, user, password);//realiza la conexión a la base de datos
+            System.out.println("Conexión exitosa");
+        }catch(ClassNotFoundException | SQLException e){
+            System.out.println("Error en la conexión: "+e);
+        }
     }
     //</editor-fold>
     
