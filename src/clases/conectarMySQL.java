@@ -15,8 +15,14 @@ import java.sql.Statement;
  * @author Emmanuel
  */
 public class conectarMySQL {
+    private String url="jdbc:mysql://localhost:3306/pruebamysql?serverTimezone=UTC";
+    private String user="root";
+    private String password="";
+    Connection conexion=null;//Se utilizará para gestionar la apertura y cierre de la conexión a la base de datos
     //<editor-fold defaultstate="collapsed" desc="Conexión de la base de datos">
-    
+    public void conectar(){
+        
+    }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Cierra la conexión a la base de datos">
@@ -42,4 +48,9 @@ public class conectarMySQL {
     //</editor-fold>
     
     //</editor-fold>
+    
+    public static void main(String[] args){
+        conectarMySQL datos=new conectarMySQL();
+        datos.conectar();
+    }
 }
