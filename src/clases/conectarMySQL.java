@@ -32,7 +32,14 @@ public class conectarMySQL {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Cierra la conexión a la base de datos">
-    
+    public void desconectar(){
+        try{
+            conexion.close();//Cierra la conexión a la base de datos
+            System.out.println("Desconexión exitosa");
+        }catch(SQLException e){
+            System.out.println("Error al desconectar: "+e);
+        }
+    }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Acciones de la base de dato">
@@ -55,8 +62,9 @@ public class conectarMySQL {
     
     //</editor-fold>
     
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         conectarMySQL datos=new conectarMySQL();
         datos.conectar();
-    }
+        datos.desconectar();
+    }*/
 }
