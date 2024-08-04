@@ -108,7 +108,24 @@ public class conectarMySQL {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Actualiza información de la base de datos">
-    
+    /**
+     * Este método se utilza para actualizar registros en la base de datos MySQL
+     * en la tabla juegos
+     * @param nombreJuego Este parámetro se utilza para reemplazar el nombre existente del juego
+     * @param plataforma Este parámetro se utilza para reemplazar la plataforma existene del juego
+     * @param id Este parámetro se utilza para buscar el registro a actualizar
+     */
+    public void actualizar(String nombreJuego,String plataforma, int id){
+        try{
+            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombreJuego=? plataforma=? WHERE id=?");
+            actualizar.setString(1, nombreJuego);//Establece el nombre del juego
+            actualizar.setString(2, plataforma);//Establece la plataforma
+            actualizar.setInt(3, id);//Hace la busqueda del registro utilizando el id
+            actualizar.executeUpdate();//Hace la actualización del registro en la base de datos
+        }catch(SQLException error){
+            System.out.println("Error al actualizar el registro: "+error);
+        }
+    }
     //</editor-fold>
     
     //</editor-fold>
