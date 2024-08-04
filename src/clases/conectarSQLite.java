@@ -76,10 +76,10 @@ public class conectarSQLite {
         try{
             PreparedStatement seleccionar=connect.prepareStatement("SELECT * FROM juegos");
             ResultSet resultado=seleccionar.executeQuery();//Ejecuta la sentencia para mostrar la información de la base de datos
-            while(resultado.next()){
-                System.out.println("ID: "+resultado.getInt("id"));
-                System.out.println("Nombre del juego: "+resultado.getString("nombre"));
-                System.out.println("Plataforma: "+resultado.getString("plataforma"));
+            while(resultado.next()){//Mientras haya registros
+                System.out.print("ID: "+resultado.getInt(1)+" ");
+                System.out.print("Nombre del juego: "+resultado.getString(2)+" ");
+                System.out.println("Plataforma: "+resultado.getString(3));
             }
         }catch(SQLException error){
             error.printStackTrace();

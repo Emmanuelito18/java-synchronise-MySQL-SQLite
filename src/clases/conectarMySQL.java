@@ -71,7 +71,19 @@ public class conectarMySQL {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Muesta información de la base de datos">
-    
+    public void seleccionar(){
+        try{
+            PreparedStatement seleccionar=conexion.prepareStatement("SELECT * FROM juegos");
+            ResultSet resultado=seleccionar.executeQuery();//Ejecuta la petición a la base de datos MySQL
+            while (resultado.next()) {//Mientras haya registros
+                System.out.print("ID: "+resultado.getInt(1)+" ");
+                System.out.print("juego: "+resultado.getString(2)+" ");
+                System.out.println("plataforma: "+resultado.getString(3));
+            }
+        }catch(SQLException error){
+            System.out.println("Error al hacer la inserción: "+error);
+        }
+    }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Elimina infomarción de la base de datos">
