@@ -71,6 +71,10 @@ public class conectarMySQL {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Muesta información de la base de datos">
+    /**
+     * Este método se utiliza para mostrar la información de la base de datos MySQL de la tabla juegos
+     * Este método no recibe argumentos
+     */
     public void seleccionar(){
         try{
             PreparedStatement seleccionar=conexion.prepareStatement("SELECT * FROM juegos");
