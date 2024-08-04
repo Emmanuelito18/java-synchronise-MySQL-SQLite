@@ -20,6 +20,10 @@ public class conectarMySQL {
     private String password="";
     Connection conexion=null;//Se utilizará para gestionar la apertura y cierre de la conexión a la base de datos
     //<editor-fold defaultstate="collapsed" desc="Conexión de la base de datos">
+    /**
+     * Este método se utilza para conectarse a la base de datos MySQL.
+     * Este método no recibe argumentos
+     */
     public void conectar(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");//Obtiene el conector para la conexión a la base de datos
@@ -32,6 +36,10 @@ public class conectarMySQL {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Cierra la conexión a la base de datos">
+    /**
+     * Este método se utilza para desconectarse de la base de datos MySQL.
+     * Este método no recibe argumentos
+     */
     public void desconectar(){
         try{
             conexion.close();//Cierra la conexión a la base de datos
