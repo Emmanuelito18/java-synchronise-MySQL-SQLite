@@ -53,7 +53,21 @@ public class conectarMySQL {
     //<editor-fold defaultstate="collapsed" desc="Acciones de la base de dato">
     
     //<editor-fold defaultstate="collapsed" desc="Mete información a la base de datos">
-    
+    /**
+     * Este método se utilza para meter información a la base de datos MySQL.
+     * @param nombreJuego se utiliza para determinar el nombre del juego
+     * @param plataforma se utilza para determinar la plataforma del juego
+     */
+    public void insertar(String nombreJuego,String plataforma){
+        try{
+            PreparedStatement insertar=conexion.prepareStatement("INSERT INTO juegos (nombreJuegos,plataforma) VALUES (?,?)");
+            insertar.setString(1, nombreJuego);
+            insertar.setString(2, plataforma);
+            insertar.executeUpdate();
+        }catch(SQLException error){
+            System.out.println("Error al meter información a la base de datos: "+error);
+        }
+    }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Muesta información de la base de datos">
