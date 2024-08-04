@@ -91,7 +91,20 @@ public class conectarMySQL {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Elimina infomarción de la base de datos">
-    
+    /**
+     * Este método se utiliza para eliminar registros de la base de datos MySQL,
+     * la información la elimina de la tabla juegos según el id del registro
+     * @param id este argumento se utiliza para determinar el id del registro a eliminar
+     */
+    public void eliminar(int id){
+        try{
+            PreparedStatement eliminar=conexion.prepareStatement("DELETE FROM juegos WHERE=?");
+            eliminar.setInt(1, id);//Recibe el id del registro a eliminar de la base de datos MySQL
+            eliminar.executeUpdate();//Ejecuta la eliminación de registros de la base de datos MySQL
+        }catch(SQLException error){
+            System.out.println("Error al eliminar el registro de la base de datos MySQL: "+error);
+        }
+    }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Actualiza información de la base de datos">
