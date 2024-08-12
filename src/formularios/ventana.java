@@ -108,6 +108,11 @@ public class ventana extends javax.swing.JFrame {
         });
 
         btnDesconectarMysql.setText("Desconectar");
+        btnDesconectarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesconectarMysqlActionPerformed(evt);
+            }
+        });
 
         btnMostrarMysql.setText("Mostrar");
 
@@ -524,13 +529,22 @@ public class ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
-     * Se utiliza para hacer la conexion a la base de datos MySQL mediante un boton
-     * @param evt evento que captura el click en el boton
+     * Se utiliza para hacer la conexion a la base de datos MySQL mediante un botón
+     * @param evt evento que captura el click en el botón
      */
     private void btnConectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarMysqlActionPerformed
         // TODO add your handling code here:
         MySQL.conectar();//Se realiza la conexión a la base de datos MySQL
     }//GEN-LAST:event_btnConectarMysqlActionPerformed
+
+    /**
+     * Se utilza para cerrar la conexión a la base de datos MySQL mediante un  botón
+     * @param evt evento que captura el clic en el botón
+     */
+    private void btnDesconectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarMysqlActionPerformed
+        // TODO add your handling code here:
+        MySQL.desconectar();
+    }//GEN-LAST:event_btnDesconectarMysqlActionPerformed
 
     /**
      * @param args the command line arguments
