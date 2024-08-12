@@ -15,15 +15,15 @@ import java.sql.SQLException;
  */
 public class conectarSQLite {
     private String url="jdbc:sqlite:src\\baseDatos\\pruebaSQLite.db";//Establece el url de la base de datos
-    Connection connect;//crea una variable de tipo Connection, se utilizará para realizar la conexión
+    Connection conexion;//crea una variable de tipo Connection, se utilizará para realizar la conexión
     //<editor-fold defaultstate="collapsed" desc="conexion de la base de datos">
     /**
      * Este método se utiliza para realizar la conexión a la base de datos SQLite
      */
     public void conectar(){
         try{
-            connect=DriverManager.getConnection(url);
-            if(connect!=null){
+            conexion=DriverManager.getConnection(url);
+            if(conexion!=null){
                 System.out.println("Estoy conectado a la base de datos");
             }
         }catch(SQLException error){
@@ -38,7 +38,7 @@ public class conectarSQLite {
      */
     public void desconectar(){
         try{
-            connect.close();//cierra la conexión a la base de datos
+            conexion.close();//cierra la conexión a la base de datos
             System.out.println("se ha cerrado la conexion exitosamente");
         }catch(SQLException error){
             error.printStackTrace();
@@ -57,7 +57,7 @@ public class conectarSQLite {
      */
     public void insertar(String nombreJuego, String plataforma){
         try{
-            PreparedStatement insertar=connect.prepareStatement("INSERT INTO juegos(nombreJuego,plataforma) VALUES(?,?)");
+            PreparedStatement insertar=conexion.prepareStatement("INSERT INTO juegos(nombreJuego,plataforma) VALUES(?,?)");
             insertar.setString(1, nombreJuego);//Hace la inserción del nombre del juego en la base de datos
             insertar.setString(2, plataforma);//Hace la inserción de la plataforma en la base de datos
             insertar.executeUpdate();//Hace la inserción del registro en la base de datos
@@ -74,7 +74,7 @@ public class conectarSQLite {
      */
     public void seleccionar(){
         try{
-            PreparedStatement seleccionar=connect.prepareStatement("SELECT * FROM juegos");
+            PreparedStatement seleccionar=conexion.prepareStatement("SELECT * FROM juegos");
             ResultSet resultado=seleccionar.executeQuery();//Ejecuta la sentencia para mostrar la información de la base de datos
             while(resultado.next()){//Mientras haya registros
                 System.out.print("ID: "+resultado.getInt(1)+" ");
@@ -95,7 +95,7 @@ public class conectarSQLite {
      */
     public void eliminar(int id){
         try{
-            PreparedStatement eliminar=connect.prepareStatement("DELETE FROM juegos WHERE id=?");
+            PreparedStatement eliminar=conexion.prepareStatement("DELETE FROM juegos WHERE id=?");
             eliminar.setInt(1, id);//Recibe el id del registro a eliminar de tabla de la base de datos SQLite
             eliminar.executeUpdate();//Ejecuta la eliminación del registro en la base de datos SQLite
         }catch(SQLException error){
@@ -114,7 +114,7 @@ public class conectarSQLite {
      */
     public void actualizar(String nombreJuego, String plataforma, int id){
         try{
-            PreparedStatement actualizar=connect.prepareStatement("UPDATE juegos SET nombre=?,plataforma=? WHERE id=?");
+            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombre=?,plataforma=? WHERE id=?");
             actualizar.setString(1, nombreJuego);//Hace la actualización del nombre del juego
             actualizar.setString(2, plataforma);//Hace la actualización de la plataforma 
             actualizar.setInt(3, id);//Hace la búsqueda del número 
