@@ -1,12 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package formularios;
 
+import clases.conectarMySQL;
+
 /**
- *
+ *Esta clase se utliza para realizar la comparación y fusión de ambas bases de datos
+ * utilizando los métodos de las clases conectarMySQL.java y conectarSQLite.java
  * @author Emmanuel
+ * @version 0.0.1
+ * @see conectarMySQL.java
+ * @see conectarSQLite.java
  */
 public class ventana extends javax.swing.JFrame {
 
@@ -17,6 +19,7 @@ public class ventana extends javax.swing.JFrame {
         initComponents();
     }
 
+    conectarMySQL MySQL=new conectarMySQL();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -98,6 +101,11 @@ public class ventana extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblMysql);
 
         btnConectarMysql.setText("Conectar");
+        btnConectarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConectarMysqlActionPerformed(evt);
+            }
+        });
 
         btnDesconectarMysql.setText("Desconectar");
 
@@ -514,6 +522,11 @@ public class ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarMysqlActionPerformed
+        // TODO add your handling code here:
+        MySQL.conectar();
+    }//GEN-LAST:event_btnConectarMysqlActionPerformed
 
     /**
      * @param args the command line arguments
