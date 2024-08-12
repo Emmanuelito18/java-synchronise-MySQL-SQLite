@@ -1,6 +1,6 @@
 package formularios;
 
-import clases.conectarMySQL;
+import clases.conectarMySQL;//Se utiliza para hacer cosas relacionadas a la base de datos MySQL
 
 /**
  *Esta clase se utliza para realizar la comparación y fusión de ambas bases de datos
@@ -19,7 +19,7 @@ public class ventana extends javax.swing.JFrame {
         initComponents();
     }
 
-    conectarMySQL MySQL=new conectarMySQL();
+    conectarMySQL MySQL=new conectarMySQL();//Se crea objeto MySQL para hacer cosas relacionadas a la base de datos
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -523,9 +523,13 @@ public class ventana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Se utiliza para hacer la conexion a la base de datos MySQL mediante un boton
+     * @param evt evento que captura el click en el boton
+     */
     private void btnConectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarMysqlActionPerformed
         // TODO add your handling code here:
-        MySQL.conectar();
+        MySQL.conectar();//Se realiza la conexión a la base de datos MySQL
     }//GEN-LAST:event_btnConectarMysqlActionPerformed
 
     /**
