@@ -4,11 +4,9 @@ import clases.conectarMySQL;//Se utiliza para hacer cosas relacionadas a la base
 
 /**
  *Esta clase se utliza para realizar la comparación y fusión de ambas bases de datos
- * utilizando los métodos de las clases conectarMySQL.java y conectarSQLite.java
+ * utilizando los métodos de las clases {@link conectarMySQL} y {@link conectarSQLite}
  * @author Emmanuel
  * @version 0.0.1
- * @see conectarMySQL.java
- * @see conectarSQLite.java
  */
 public class ventana extends javax.swing.JFrame {
 
@@ -115,6 +113,11 @@ public class ventana extends javax.swing.JFrame {
         });
 
         btnMostrarMysql.setText("Mostrar");
+        btnMostrarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarMysqlActionPerformed(evt);
+            }
+        });
 
         btnEditarMysql.setText("Editar");
 
@@ -132,32 +135,28 @@ public class ventana extends javax.swing.JFrame {
         pnlInsertarMysql.setLayout(pnlInsertarMysqlLayout);
         pnlInsertarMysqlLayout.setHorizontalGroup(
             pnlInsertarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlInsertarMysqlLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(pnlInsertarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInsertarMysqlLayout.createSequentialGroup()
-                        .addComponent(lblJuegoMysql)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtJuegoMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPlataformaMysql)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPlataformaMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInsertarMysqlLayout.createSequentialGroup()
-                        .addComponent(btnInsertarMysql)
-                        .addGap(125, 125, 125))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInsertarMysqlLayout.createSequentialGroup()
+                .addComponent(btnInsertarMysql)
+                .addGap(125, 125, 125))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInsertarMysqlLayout.createSequentialGroup()
+                .addComponent(lblJuegoMysql)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtJuegoMysql, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPlataformaMysql)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPlataformaMysql, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
         );
         pnlInsertarMysqlLayout.setVerticalGroup(
             pnlInsertarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInsertarMysqlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlInsertarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblJuegoMysql)
-                    .addGroup(pnlInsertarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtJuegoMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblPlataformaMysql)
-                        .addComponent(txtPlataformaMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlInsertarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJuegoMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPlataformaMysql)
+                    .addComponent(txtPlataformaMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblJuegoMysql))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnInsertarMysql)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -179,22 +178,22 @@ public class ventana extends javax.swing.JFrame {
             pnlActualizarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlActualizarMysqlLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlActualizarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlActualizarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPlataformaMysqlActualizar)
                     .addGroup(pnlActualizarMysqlLayout.createSequentialGroup()
                         .addComponent(lblIdMysql)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdMysql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtIdMysql, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlActualizarMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlActualizarMysqlLayout.createSequentialGroup()
                         .addComponent(lblJuegoMysqlActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtJuegoMysqlActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtJuegoMysqlActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlActualizarMysqlLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblPlataformaMysqlActualizar)
+                        .addComponent(txtPlataformaMysqlActualizar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPlataformaMysqlActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(btnActualizarMysql)
                         .addGap(25, 25, 25))))
         );
@@ -298,18 +297,19 @@ public class ventana extends javax.swing.JFrame {
         pnlInsertarSqliteLayout.setHorizontalGroup(
             pnlInsertarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInsertarSqliteLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(pnlInsertarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInsertarSqliteLayout.createSequentialGroup()
                         .addComponent(lblJuegoSqlite)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtJuegoSqlite)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtJuegoSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(lblPlataformaSqlite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPlataformaSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPlataformaSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlInsertarSqliteLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnInsertarSqlite)
                         .addGap(125, 125, 125))))
         );
@@ -317,12 +317,11 @@ public class ventana extends javax.swing.JFrame {
             pnlInsertarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlInsertarSqliteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlInsertarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblJuegoSqlite)
-                    .addGroup(pnlInsertarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtJuegoSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblPlataformaSqlite)
-                        .addComponent(txtPlataformaSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlInsertarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJuegoSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPlataformaSqlite)
+                    .addComponent(txtPlataformaSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblJuegoSqlite))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnInsertarSqlite)
                 .addContainerGap(14, Short.MAX_VALUE))
@@ -344,24 +343,22 @@ public class ventana extends javax.swing.JFrame {
             pnlActualizarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlActualizarSqliteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlActualizarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlActualizarSqliteLayout.createSequentialGroup()
-                        .addComponent(lblIdSqlite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIdSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblJuegoSqliteActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtJuegoSqliteActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlActualizarSqliteLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(lblPlataformaSqliteActualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPlataformaSqliteActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnActualizarSqlite)
-                        .addGap(25, 25, 25))))
+                .addComponent(lblIdSqlite)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtIdSqlite, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblJuegoSqliteActualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtJuegoSqliteActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pnlActualizarSqliteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPlataformaSqliteActualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPlataformaSqliteActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnActualizarSqlite)
+                .addGap(25, 25, 25))
         );
         pnlActualizarSqliteLayout.setVerticalGroup(
             pnlActualizarSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -408,7 +405,7 @@ public class ventana extends javax.swing.JFrame {
                 .addComponent(btnDesconectarSlite)
                 .addGap(18, 18, 18)
                 .addComponent(btnMostrarSqlite)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         pnlSqliteLayout.setVerticalGroup(
             pnlSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,12 +536,26 @@ public class ventana extends javax.swing.JFrame {
 
     /**
      * Se utilza para cerrar la conexión a la base de datos MySQL mediante un  botón
-     * @param evt evento que captura el clic en el botón
+     * @param evt evento que captura el click en el botón
      */
     private void btnDesconectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarMysqlActionPerformed
         // TODO add your handling code here:
-        MySQL.desconectar();
+        MySQL.desconectar();//Se realiza la desconexión de la base de datos MySQL
     }//GEN-LAST:event_btnDesconectarMysqlActionPerformed
+
+    /**
+     * Se utilza para hacer que se muestre todos los registros de la base de datos mediante un botón
+     * @param evt evento que captura el click en el botón 
+     */
+    private void btnMostrarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMysqlActionPerformed
+        // TODO add your handling code here:
+        if(MySQL.estaVacio()==true){
+            System.out.println("La base de datos MySQL está vacía");
+        }else{
+            System.out.println("La base de datos MySQL no está vacía");
+            MySQL.seleccionar();//Muestra todos los registros de la base de datos MySQL
+        }
+    }//GEN-LAST:event_btnMostrarMysqlActionPerformed
 
     /**
      * @param args the command line arguments

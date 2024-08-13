@@ -197,6 +197,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mostrar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarMysqlActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditarMysql">
                   <Properties>
@@ -225,24 +228,19 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace pref="26" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblJuegoMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtJuegoMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblPlataformaMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtPlataformaMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="btnInsertarMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnInsertarMysql" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblJuegoMysql" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtJuegoMysql" min="-2" pref="96" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblPlataformaMysql" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtPlataformaMysql" min="-2" pref="91" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -250,13 +248,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblJuegoMysql" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="txtJuegoMysql" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPlataformaMysql" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPlataformaMysql" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtJuegoMysql" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPlataformaMysql" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPlataformaMysql" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblJuegoMysql" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnInsertarMysql" min="-2" max="-2" attributes="0"/>
@@ -306,23 +302,25 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblPlataformaMysqlActualizar" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Component id="lblIdMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtIdMysql" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtIdMysql" min="-2" pref="76" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="lblJuegoMysqlActualizar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtJuegoMysqlActualizar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtJuegoMysqlActualizar" min="-2" pref="106" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="lblPlataformaMysqlActualizar" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="txtPlataformaMysqlActualizar" max="32767" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtPlataformaMysqlActualizar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnActualizarMysql" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
@@ -423,7 +421,7 @@
                           <Component id="btnDesconectarSlite" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="btnMostrarSqlite" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -512,19 +510,20 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="lblJuegoSqlite" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtJuegoSqlite" max="32767" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtJuegoSqlite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="lblPlataformaSqlite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtPlataformaSqlite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtPlataformaSqlite" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="btnInsertarSqlite" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
                                   </Group>
@@ -536,13 +535,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblJuegoSqlite" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="txtJuegoSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblPlataformaSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtPlataformaSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="txtJuegoSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPlataformaSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtPlataformaSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblJuegoSqlite" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="btnInsertarSqlite" min="-2" max="-2" attributes="0"/>
@@ -592,27 +589,23 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblIdSqlite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtIdSqlite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="lblJuegoSqliteActualizar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtJuegoSqliteActualizar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="lblPlataformaSqliteActualizar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtPlataformaSqliteActualizar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnActualizarSqlite" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="lblIdSqlite" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtIdSqlite" min="-2" pref="82" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="lblJuegoSqliteActualizar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtJuegoSqliteActualizar" min="-2" pref="116" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lblPlataformaSqliteActualizar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtPlataformaSqliteActualizar" min="-2" pref="88" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnActualizarSqlite" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
