@@ -125,6 +125,31 @@ public class conectarSQLite {
     }
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Verifica si la base de datos está vacía">
+    /**
+     * Este método se utiliza para saber si la base de datos está vacía o no,
+     * se utilza para hacer la sincronización de las bases de datos
+     * @return <code>estado</code> devuelve <code>true</code> sí la base de datos está vacía o <code>flase</code> sí la base de datos está llena
+     */
+    public boolean estaVacio(){
+        boolean estado=false;//Se utilza para saber el estado de la base de datos 
+        try{
+            PreparedStatement vacio=conexion.prepareStatement("SELECT COUNT(*) AS cantidadRegistros FROM juegos");//ejecuta una consulta para obtener la cantidad de registros de la tabla
+            ResultSet resultado=vacio.executeQuery();//Ejecuta la petición a la base de datos
+            resultado.next();//
+            int cantidad=resultado.getInt("cantidadRegistros");//Asigna el numero de registros en la tabla a cuenta
+            if(cantidad==0){//Sí la base de datos está vacía
+                estado=true;
+            }else{//Sí la base de datos no está vacía
+                estado=false;
+            }
+        }catch(SQLException error){
+            error.printStackTrace();
+        }
+        return estado;//Regresa el valor del estado de la base de datos
+    }
+    //</editor-fold>
+    
     //</editor-fold>
         
     /*public static void main(String[] args){
