@@ -60,7 +60,7 @@ public class conectarMySQL {
      */
     public void insertar(String nombreJuego,String plataforma){
         try{
-            PreparedStatement insertar=conexion.prepareStatement("INSERT INTO juegos (nombreJuegos,plataforma) VALUES (?,?)");
+            PreparedStatement insertar=conexion.prepareStatement("INSERT INTO juegos (nombreJuegos,plataforma,fechaActualizado) VALUES (?,?,NULL)");
             insertar.setString(1, nombreJuego);
             insertar.setString(2, plataforma);
             insertar.executeUpdate();
