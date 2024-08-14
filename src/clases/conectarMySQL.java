@@ -117,7 +117,7 @@ public class conectarMySQL {
      */
     public void actualizar(String nombreJuego,String plataforma, int id){
         try{
-            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombreJuego=? plataforma=? WHERE id=?");
+            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombreJuego=?, plataforma=?,fechaActualizado=CURRENT_TIMESTAMP WHERE id=?");
             actualizar.setString(1, nombreJuego);//Establece el nombre del juego
             actualizar.setString(2, plataforma);//Establece la plataforma
             actualizar.setInt(3, id);//Hace la busqueda del registro utilizando el id
