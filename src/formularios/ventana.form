@@ -102,13 +102,13 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jScrollPane1" min="-2" pref="197" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="tbnEliminarMysql" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnEditarMysql" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                               <Component id="pnlActualizarMysql" max="32767" attributes="0"/>
                               <Component id="pnlInsertarMysql" alignment="0" max="32767" attributes="0"/>
@@ -166,12 +166,12 @@
                     <Component class="javax.swing.JTable" name="tblMysql">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="4">
+                          <Table columnCount="5" rowCount="0">
                             <Column editable="false" title="ID" type="java.lang.Object"/>
-                            <Column editable="false" title="Nombre" type="java.lang.Object"/>
+                            <Column editable="false" title="Juego" type="java.lang.Object"/>
                             <Column editable="false" title="Plataforma" type="java.lang.Object"/>
-                            <Column editable="false" title="Fecha craci&#xf3;n" type="java.lang.Object"/>
-                            <Column editable="false" title="Fecha actualizaci&#xf3;n" type="java.lang.Object"/>
+                            <Column editable="false" title="Creaci&#xf3;n" type="java.lang.Object"/>
+                            <Column editable="false" title="Actualizaci&#xf3;n" type="java.lang.Object"/>
                           </Table>
                         </Property>
                       </Properties>
@@ -403,14 +403,13 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="pnlInsertarSqlite" alignment="0" max="32767" attributes="0"/>
                               <Component id="pnlActualizarSqlite" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jScrollPane2" min="-2" pref="197" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="tbnEliminarSqlite" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnEditarSqlite" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -467,11 +466,12 @@
                     <Component class="javax.swing.JTable" name="tblSqlite">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="5" rowCount="0">
+                            <Column editable="false" title="ID" type="java.lang.Object"/>
+                            <Column editable="false" title="Juego" type="java.lang.Object"/>
+                            <Column editable="false" title="Plataforma" type="java.lang.Object"/>
+                            <Column editable="false" title="Creaci&#xf3;n" type="java.lang.Object"/>
+                            <Column editable="false" title="Actualizaci&#xf3;n" type="java.lang.Object"/>
                           </Table>
                         </Property>
                       </Properties>
@@ -692,9 +692,9 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" min="-2" pref="197" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="409" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnComparar" min="-2" max="-2" attributes="0"/>
                           <Component id="btnFusionar" min="-2" max="-2" attributes="0"/>
@@ -731,11 +731,12 @@
                 <Component class="javax.swing.JTable" name="tblFusion">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      <Table columnCount="5" rowCount="0">
+                        <Column editable="false" title="ID" type="java.lang.Object"/>
+                        <Column editable="false" title="Juego" type="java.lang.Object"/>
+                        <Column editable="false" title="Plataforma" type="java.lang.Object"/>
+                        <Column editable="false" title="Creaci&#xf3;n" type="java.lang.Object"/>
+                        <Column editable="false" title="Actualizaci&#xf3;n" type="java.lang.Object"/>
                       </Table>
                     </Property>
                   </Properties>
