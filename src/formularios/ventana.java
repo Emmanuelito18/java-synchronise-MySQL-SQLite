@@ -175,6 +175,9 @@ public class ventana extends javax.swing.JFrame {
 
         lblJuegoMysqlActualizar.setText("Juego:");
 
+        txtIdMysql.setEditable(false);
+        txtIdMysql.setEnabled(false);
+
         lblIdMysql.setText("ID:");
 
         javax.swing.GroupLayout pnlActualizarMysqlLayout = new javax.swing.GroupLayout(pnlActualizarMysql);
@@ -344,6 +347,9 @@ public class ventana extends javax.swing.JFrame {
         lblPlataformaSqliteActualizar.setText("Plataforma:");
 
         lblJuegoSqliteActualizar.setText("Juego:");
+
+        txtIdSqlite.setEditable(false);
+        txtIdSqlite.setEnabled(false);
 
         lblIdSqlite.setText("ID:");
 
