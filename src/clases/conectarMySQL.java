@@ -82,7 +82,9 @@ public class conectarMySQL {
             while (resultado.next()) {//Mientras haya registros
                 System.out.print("ID: "+resultado.getInt(1)+" ");
                 System.out.print("juego: "+resultado.getString(2)+" ");
-                System.out.println("plataforma: "+resultado.getString(3));
+                System.out.print("plataforma: "+resultado.getString(3)+" ");
+                System.out.print("Fecha de creación: "+resultado.getTimestamp(4)+" ");
+                System.out.println("Fecha de actualización: "+resultado.getTimestamp(5));
             }
         }catch(SQLException error){
             System.out.println("Error al hacer la inserción: "+error);
@@ -98,7 +100,7 @@ public class conectarMySQL {
      */
     public void eliminar(int id){
         try{
-            PreparedStatement eliminar=conexion.prepareStatement("DELETE FROM juegos WHERE=?");
+            PreparedStatement eliminar=conexion.prepareStatement("DELETE FROM juegos WHERE id=?");
             eliminar.setInt(1, id);//Recibe el id del registro a eliminar de la base de datos MySQL
             eliminar.executeUpdate();//Ejecuta la eliminación de registros de la base de datos MySQL
         }catch(SQLException error){
