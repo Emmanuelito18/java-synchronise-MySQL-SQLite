@@ -79,7 +79,9 @@ public class conectarSQLite {
             while(resultado.next()){//Mientras haya registros
                 System.out.print("ID: "+resultado.getInt(1)+" ");
                 System.out.print("Nombre del juego: "+resultado.getString(2)+" ");
-                System.out.println("Plataforma: "+resultado.getString(3));
+                System.out.print("Plataforma: "+resultado.getString(3)+" ");
+                System.out.print("Fecha de creación: "+resultado.getString(4)+" ");
+                System.out.println("Fecha de actualización: "+resultado.getString(5));
             }
         }catch(SQLException error){
             error.printStackTrace();
@@ -114,7 +116,7 @@ public class conectarSQLite {
      */
     public void actualizar(String nombreJuego, String plataforma, int id){
         try{
-            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombre=?,plataforma=? WHERE id=?");
+            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombre=?,plataforma=?,fechaActualizado=datetime('now','localtime') WHERE id=?");
             actualizar.setString(1, nombreJuego);//Hace la actualización del nombre del juego
             actualizar.setString(2, plataforma);//Hace la actualización de la plataforma 
             actualizar.setInt(3, id);//Hace la búsqueda del número 
