@@ -57,7 +57,7 @@ public class conectarSQLite {
      */
     public void insertar(String nombreJuego, String plataforma){
         try{
-            PreparedStatement insertar=conexion.prepareStatement("INSERT INTO juegos(nombreJuego,plataforma) VALUES(?,?)");
+            PreparedStatement insertar=conexion.prepareStatement("INSERT INTO juegos(nombreJuego,plataforma,fechaActualizado) VALUES(?,?,NULL)");
             insertar.setString(1, nombreJuego);//Hace la inserción del nombre del juego en la base de datos
             insertar.setString(2, plataforma);//Hace la inserción de la plataforma en la base de datos
             insertar.executeUpdate();//Hace la inserción del registro en la base de datos
