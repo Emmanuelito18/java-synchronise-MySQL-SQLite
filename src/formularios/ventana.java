@@ -1,6 +1,7 @@
 package formularios;
 
 import clases.conectarMySQL;//Se utiliza para hacer cosas relacionadas a la base de datos MySQL
+import clases.conectarSQLite;//Se utiliza para hacer cosas relacionadas a la base de datos SQLite
 
 /**
  *Esta clase se utliza para realizar la comparación y fusión de ambas bases de datos
@@ -18,6 +19,7 @@ public class ventana extends javax.swing.JFrame {
     }
 
     conectarMySQL MySQL=new conectarMySQL();//Se crea objeto MySQL para hacer cosas relacionadas a la base de datos
+    conectarSQLite SQLite=new conectarSQLite();//Se creo objeto SQLite para hacer cosas relacionadas a la base de datos
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,8 +127,18 @@ public class ventana extends javax.swing.JFrame {
         });
 
         btnEditarMysql.setText("Editar");
+        btnEditarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarMysqlActionPerformed(evt);
+            }
+        });
 
         tbnEliminarMysql.setText("Eliminar");
+        tbnEliminarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbnEliminarMysqlActionPerformed(evt);
+            }
+        });
 
         pnlInsertarMysql.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Insertar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 14))); // NOI18N
 
@@ -135,6 +147,11 @@ public class ventana extends javax.swing.JFrame {
         lblJuegoMysql.setText("Juego:");
 
         btnInsertarMysql.setText("Insertar");
+        btnInsertarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarMysqlActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlInsertarMysqlLayout = new javax.swing.GroupLayout(pnlInsertarMysql);
         pnlInsertarMysql.setLayout(pnlInsertarMysqlLayout);
@@ -170,8 +187,18 @@ public class ventana extends javax.swing.JFrame {
         pnlActualizarMysql.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Actualizar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 14))); // NOI18N
 
         btnActualizarMysql.setText("Actualizar");
+        btnActualizarMysql.setEnabled(false);
+        btnActualizarMysql.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarMysqlActionPerformed(evt);
+            }
+        });
+
+        txtPlataformaMysqlActualizar.setEnabled(false);
 
         lblPlataformaMysqlActualizar.setText("Plataforma:");
+
+        txtJuegoMysqlActualizar.setEnabled(false);
 
         lblJuegoMysqlActualizar.setText("Juego:");
 
@@ -292,10 +319,25 @@ public class ventana extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tblSqlite);
 
         btnMostrarSqlite.setText("Mostrar");
+        btnMostrarSqlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarSqliteActionPerformed(evt);
+            }
+        });
 
         btnDesconectarSlite.setText("Desconectar");
+        btnDesconectarSlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesconectarSliteActionPerformed(evt);
+            }
+        });
 
         btnConectarSqlite.setText("Conectar");
+        btnConectarSqlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConectarSqliteActionPerformed(evt);
+            }
+        });
 
         pnlInsertarSqlite.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Insertar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 14))); // NOI18N
 
@@ -304,6 +346,11 @@ public class ventana extends javax.swing.JFrame {
         lblJuegoSqlite.setText("Juego:");
 
         btnInsertarSqlite.setText("Insertar");
+        btnInsertarSqlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertarSqliteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlInsertarSqliteLayout = new javax.swing.GroupLayout(pnlInsertarSqlite);
         pnlInsertarSqlite.setLayout(pnlInsertarSqliteLayout);
@@ -343,8 +390,18 @@ public class ventana extends javax.swing.JFrame {
         pnlActualizarSqlite.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Actualizar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 0, 14))); // NOI18N
 
         btnActualizarSqlite.setText("Actualizar");
+        btnActualizarSqlite.setEnabled(false);
+        btnActualizarSqlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarSqliteActionPerformed(evt);
+            }
+        });
+
+        txtPlataformaSqliteActualizar.setEnabled(false);
 
         lblPlataformaSqliteActualizar.setText("Plataforma:");
+
+        txtJuegoSqliteActualizar.setEnabled(false);
 
         lblJuegoSqliteActualizar.setText("Juego:");
 
@@ -394,8 +451,18 @@ public class ventana extends javax.swing.JFrame {
         );
 
         btnEditarSqlite.setText("Editar");
+        btnEditarSqlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarSqliteActionPerformed(evt);
+            }
+        });
 
         tbnEliminarSqlite.setText("Eliminar");
+        tbnEliminarSqlite.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tbnEliminarSqliteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSqliteLayout = new javax.swing.GroupLayout(pnlSqlite);
         pnlSqlite.setLayout(pnlSqliteLayout);
@@ -550,7 +617,6 @@ public class ventana extends javax.swing.JFrame {
      * @param evt evento que captura el click en el botón
      */
     private void btnConectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarMysqlActionPerformed
-        // TODO add your handling code here:
         MySQL.conectar();//Se realiza la conexión a la base de datos MySQL
     }//GEN-LAST:event_btnConectarMysqlActionPerformed
 
@@ -559,7 +625,6 @@ public class ventana extends javax.swing.JFrame {
      * @param evt evento que captura el click en el botón
      */
     private void btnDesconectarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarMysqlActionPerformed
-        // TODO add your handling code here:
         MySQL.desconectar();//Se realiza la desconexión de la base de datos MySQL
     }//GEN-LAST:event_btnDesconectarMysqlActionPerformed
 
@@ -568,14 +633,162 @@ public class ventana extends javax.swing.JFrame {
      * @param evt evento que captura el click en el botón 
      */
     private void btnMostrarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMysqlActionPerformed
-        // TODO add your handling code here:
         if(MySQL.estaVacio()==true){
             System.out.println("La base de datos MySQL está vacía");
         }else{
             System.out.println("La base de datos MySQL no está vacía");
-            MySQL.seleccionar();//Muestra todos los registros de la base de datos MySQL
+            tblMysql.setModel(MySQL.seleccionar());//MySQL.seleccionar();//Muestra todos los registros de la base de datos MySQL
         }
     }//GEN-LAST:event_btnMostrarMysqlActionPerformed
+
+    /**
+     * Se utiliza para insertar información a la base de datos MySQL obteniendo los datos de los campos de texto mediante un botón.
+     * Este método no devuelve nada
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnInsertarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarMysqlActionPerformed
+        String juego=null,plataforma=null;
+        juego=txtJuegoMysql.getText();
+        plataforma=txtPlataformaMysql.getText();
+        MySQL.insertar(juego, plataforma);//Mete los datos a la base de datos
+        txtJuegoMysql.setText(" ");
+        txtPlataformaMysql.setText(" ");
+    }//GEN-LAST:event_btnInsertarMysqlActionPerformed
+
+    /**
+     * Se utiliza para Actualizar la información a la base de datos MySQL obteniendo los datos de los campos de texto mediante un botón.
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnActualizarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarMysqlActionPerformed
+        int id=0;
+        String juego=null,plataforma=null,idString=null;
+        idString=txtIdMysql.getText();
+        id=Integer.parseInt(idString);//convierte el string del id a un entero
+        juego=txtJuegoMysqlActualizar.getText();
+        plataforma=txtPlataformaMysqlActualizar.getText();
+        MySQL.actualizar(juego, plataforma, id);//Actualiza los datos de un registro ya existente
+        //<editor-fold defaultstate="collapsed" desc="Limpia los campos">
+        txtIdMysql.setText(" ");
+        txtJuegoMysqlActualizar.setText(" ");
+        txtPlataformaMysqlActualizar.setText(" ");
+        //</editor-fold>
+        //<editor-fold defaultstate="collapsed" desc="Desactiva la sección para actualizar">
+        txtJuegoMysqlActualizar.setEnabled(false);
+        txtPlataformaMysqlActualizar.setEnabled(false);
+        btnActualizarMysql.setEnabled(false);
+        //</editor-fold>
+    }//GEN-LAST:event_btnActualizarMysqlActionPerformed
+
+    /**
+     * Se utiliza para seleccionar el registro a actualizar mediante un botón
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnEditarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMysqlActionPerformed
+        //<editor-fold defaultstate="collapsed" desc="Rellena los datos para actualizar">
+        /*txtIdMysql.setText(t);
+        txtJuegoMysqlActualizar.setText(t);
+        txtPlataformaMysqlActualizar.setText(t);*/
+        //</editor-fold>
+        //<editor-fold defaultstate="collapsed" desc="Activa los datos para actualizar">
+        txtJuegoMysqlActualizar.setEnabled(true);
+        txtPlataformaMysqlActualizar.setEnabled(true);
+        btnActualizarMysql.setEnabled(true);
+        //</editor-fold>
+    }//GEN-LAST:event_btnEditarMysqlActionPerformed
+    
+    /**
+     * Se utiliza para eliminar registros en la base de datos mediante un botón
+     * @param evt evento que captura el click en el botón 
+     */
+    private void tbnEliminarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnEliminarMysqlActionPerformed
+        //Añadir libreria para notificaciones
+    }//GEN-LAST:event_tbnEliminarMysqlActionPerformed
+
+    /**
+     * Se utiliza para hacer la conexion a la base de datos SQLite mediante un botón
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnConectarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConectarSqliteActionPerformed
+        SQLite.conectar();//Se realiza la conexión a la base de datos SQLite
+    }//GEN-LAST:event_btnConectarSqliteActionPerformed
+
+    /**
+     * Se utilza para cerrar la conexión a la base de datos MySQL mediante un  botón
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnDesconectarSliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarSliteActionPerformed
+       SQLite.desconectar();//Se desconecta de la base de datos SQLite
+    }//GEN-LAST:event_btnDesconectarSliteActionPerformed
+
+    /**
+     * Se utilza para hacer que se muestre todos los registros de la base de datos mediante un botón
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnMostrarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarSqliteActionPerformed
+        SQLite.seleccionar();
+    }//GEN-LAST:event_btnMostrarSqliteActionPerformed
+
+    /**
+     * Se utiliza para insertar información a la base de datos MySQL obteniendo los datos de los campos de texto mediante un botón.
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnInsertarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarSqliteActionPerformed
+        String juego=null,plataforma=null;
+        juego=txtJuegoSqlite.getText();
+        plataforma=txtPlataformaSqlite.getText();
+        SQLite.insertar(juego, plataforma);//Mete los datos a la base de datos
+        txtJuegoSqlite.setText(" ");
+        txtPlataformaSqlite.setText(" ");
+    }//GEN-LAST:event_btnInsertarSqliteActionPerformed
+
+    /**
+     * Se utiliza para Actualizar la información a la base de datos MySQL obteniendo los datos de los campos de texto mediante un botón.
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnActualizarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarSqliteActionPerformed
+        int id=0;
+        String juego=null,plataforma=null,idString=null;
+        idString=txtIdSqlite.getText();
+        id=Integer.parseInt(idString);//convierte el string del id a un entero
+        juego=txtJuegoSqliteActualizar.getText();
+        plataforma=txtPlataformaSqliteActualizar.getText();
+        SQLite.actualizar(juego, plataforma, id);//Actualiza los datos de un registro ya existente
+        //<editor-fold defaultstate="collapsed" desc="Limpia los campos">
+        txtIdSqlite.setText(" ");
+        txtJuegoSqliteActualizar.setText(" ");
+        txtPlataformaSqliteActualizar.setText(" ");
+        //</editor-fold>
+        //<editor-fold defaultstate="collapsed" desc="Desactiva la sección para actualizar">
+        txtJuegoSqliteActualizar.setEnabled(false);
+        txtPlataformaSqliteActualizar.setEnabled(false);
+        btnActualizarSqlite.setEnabled(false);
+        //</editor-fold>
+    }//GEN-LAST:event_btnActualizarSqliteActionPerformed
+
+    /**
+     * Se utiliza para seleccionar el registro a actualizar mediante un botón
+     * @param evt evento que captura el click en el botón
+     */
+    private void btnEditarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarSqliteActionPerformed
+        //<editor-fold defaultstate="collapsed" desc="Rellena los datos para actualizar">
+        /*txtIdSqlite.setText(t);
+        txtJuegoSqliteActualizar.setText(t);
+        txtPlataformaSqliteActualizar.setText(t);*/
+        //</editor-fold>
+        //<editor-fold defaultstate="collapsed" desc="Activa los datos para actualizar">
+        txtJuegoSqliteActualizar.setEnabled(true);
+        txtPlataformaSqliteActualizar.setEnabled(true);
+        btnActualizarSqlite.setEnabled(true);
+        //</editor-fold>
+    }//GEN-LAST:event_btnEditarSqliteActionPerformed
+
+    /**
+     * Se utiliza para eliminar registros en la base de datos mediante un botón
+     * @param evt evento que captura el click en el botón
+     */
+    private void tbnEliminarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnEliminarSqliteActionPerformed
+       //Anadir libreria para notifiaciones 
+    }//GEN-LAST:event_tbnEliminarSqliteActionPerformed
 
     /**
      * @param args the command line arguments

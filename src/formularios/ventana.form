@@ -206,11 +206,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarMysqlActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="tbnEliminarMysql">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbnEliminarMysqlActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="pnlInsertarMysql">
                   <Properties>
@@ -281,6 +287,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertarMysqlActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -354,9 +363,16 @@
                     <Component class="javax.swing.JButton" name="btnActualizarMysql">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Actualizar"/>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarMysqlActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPlataformaMysqlActualizar">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPlataformaMysqlActualizar">
                       <Properties>
@@ -364,6 +380,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtJuegoMysqlActualizar">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblJuegoMysqlActualizar">
                       <Properties>
@@ -486,16 +505,25 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mostrar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMostrarSqliteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnDesconectarSlite">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Desconectar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDesconectarSliteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnConectarSqlite">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Conectar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConectarSqliteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="pnlInsertarSqlite">
                   <Properties>
@@ -572,6 +600,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Insertar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInsertarSqliteActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -639,9 +670,16 @@
                     <Component class="javax.swing.JButton" name="btnActualizarSqlite">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Actualizar"/>
+                        <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarSqliteActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPlataformaSqliteActualizar">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPlataformaSqliteActualizar">
                       <Properties>
@@ -649,6 +687,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtJuegoSqliteActualizar">
+                      <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblJuegoSqliteActualizar">
                       <Properties>
@@ -672,11 +713,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarSqliteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="tbnEliminarSqlite">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbnEliminarSqliteActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

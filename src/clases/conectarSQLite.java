@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 //</editor-fold>
+import javax.swing.table.DefaultTableModel;//Se utiliza para mostrar la información de la base de datos en la tabla
 
 /**
  *Esta clase se utiliza para manejar la conexión y operaciones de la
@@ -71,21 +72,36 @@ public class conectarSQLite {
     /**
      * Este método se utiliza para mostrar la información que hay en la base de datos SQLite de la tabla juegos
      * Este método no recibe parámetros
+     * @return Devuelve un <code>DefaultTableModel</code> con la información de los registros de la base de datos. Se utiliza para meter los datos a una tabla
      */
-    public void seleccionar(){
+    public DefaultTableModel seleccionar(){
+        String columnas[]={"ID","Juego","Plataforma","Creado","Actualizado"};//Se utiliza para los identificadores de columnas
+        DefaultTableModel modelo=new DefaultTableModel();
+        modelo.setColumnCount(5);//Establece la cantidad de columnas 
+        modelo.setColumnIdentifiers(columnas);//Especifica los identificadores de las columnas
         try{
+            Object[] registro=new Object[5];
             PreparedStatement seleccionar=conexion.prepareStatement("SELECT * FROM juegos");
             ResultSet resultado=seleccionar.executeQuery();//Ejecuta la sentencia para mostrar la información de la base de datos
             while(resultado.next()){//Mientras haya registros
-                System.out.print("ID: "+resultado.getInt(1)+" ");
+                //<editor-fold defaultstate="collapsed" desc="Código de depuración">
+                /*System.out.print("ID: "+resultado.getInt(1)+" ");
                 System.out.print("Nombre del juego: "+resultado.getString(2)+" ");
                 System.out.print("Plataforma: "+resultado.getString(3)+" ");
                 System.out.print("Fecha de creación: "+resultado.getString(4)+" ");
-                System.out.println("Fecha de actualización: "+resultado.getString(5));
+                System.out.println("Fecha de actualización: "+resultado.getString(5));*/
+                //</editor-fold>
+                registro[0]=resultado.getInt(1);
+                registro[1]=resultado.getString(2);
+                registro[2]=resultado.getString(3);
+                registro[3]=resultado.getString(4);
+                registro[4]=resultado.getString(5);
+                modelo.addRow(registro);
             }
         }catch(SQLException error){
             error.printStackTrace();
         }
+        return modelo;
     }
     //</editor-fold>
     
