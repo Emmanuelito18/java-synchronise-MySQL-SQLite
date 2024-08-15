@@ -83,7 +83,7 @@ public class conectarMySQL {
         modelo.setColumnCount(5);//Establece la cantidad de columnas 
         modelo.setColumnIdentifiers(columnas);//Especifica los identificadores de las columnas
         try{
-            Object[] juego=new Object[5];
+            Object[] registro=new Object[5];
             PreparedStatement seleccionar=conexion.prepareStatement("SELECT * FROM juegos");
             ResultSet resultado=seleccionar.executeQuery();//Ejecuta la petición a la base de datos MySQL
             while (resultado.next()) {//Mientras haya registros
@@ -94,12 +94,12 @@ public class conectarMySQL {
                 System.out.print("Fecha de creación: "+resultado.getTimestamp(4)+" ");
                 System.out.println("Fecha de actualización: "+resultado.getTimestamp(5));*/
                 //</editor-fold>
-                juego[0]=resultado.getInt(1);
-                juego[1]=resultado.getString(2);
-                juego[2]=resultado.getString(3);
-                juego[3]=resultado.getTimestamp(4);
-                juego[4]=resultado.getTimestamp(5);
-                modelo.addRow(juego);
+                registro[0]=resultado.getInt(1);
+                registro[1]=resultado.getString(2);
+                registro[2]=resultado.getString(3);
+                registro[3]=resultado.getTimestamp(4);
+                registro[4]=resultado.getTimestamp(5);
+                modelo.addRow(registro);
             }
         }catch(SQLException error){
             System.out.println("Error al hacer la inserción: "+error);
