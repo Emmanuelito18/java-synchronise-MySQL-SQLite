@@ -72,13 +72,13 @@ public class conectarSQLite {
     /**
      * Este método se utiliza para mostrar la información que hay en la base de datos SQLite de la tabla juegos
      * Este método no recibe parámetros
-     * @return Devuelve un <code>DefaultTableModel</code> con la información de los registros de la base de datos. Se utiliza para meter los datos a una tabla
+     * @param modelo Recibe un <code>DefaultTableModel</code> para meter la información en la tabla
      */
-    public DefaultTableModel seleccionar(){
-        String columnas[]={"ID","Juego","Plataforma","Creado","Actualizado"};//Se utiliza para los identificadores de columnas
-        DefaultTableModel modelo=new DefaultTableModel();
-        modelo.setColumnCount(5);//Establece la cantidad de columnas 
-        modelo.setColumnIdentifiers(columnas);//Especifica los identificadores de las columnas
+    public void seleccionar(DefaultTableModel modelo){
+        modelo.getColumnCount();
+        /*obtiene la cantidad de columnas del modelo de la tabla tblMysql.
+        Se utiliza para meter la información a las columnas correspondientes
+        */
         try{
             Object[] registro=new Object[5];
             PreparedStatement seleccionar=conexion.prepareStatement("SELECT * FROM juegos");
@@ -96,12 +96,11 @@ public class conectarSQLite {
                 registro[2]=resultado.getString(3);
                 registro[3]=resultado.getString(4);
                 registro[4]=resultado.getString(5);
-                modelo.addRow(registro);
+                modelo.addRow(registro);//mete los datos a la tabla tblMysql
             }
         }catch(SQLException error){
             error.printStackTrace();
         }
-        return modelo;
     }
     //</editor-fold>
     
