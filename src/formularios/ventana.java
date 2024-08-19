@@ -1,7 +1,8 @@
 package formularios;
 
 import clases.conectarMySQL;//Se utiliza para hacer cosas relacionadas a la base de datos MySQL
-import clases.conectarSQLite;//Se utiliza para hacer cosas relacionadas a la base de datos SQLite
+import clases.conectarSQLite;//Se ut_iliza para hacer cosas relacionadas a la base de datos SQLite
+import javax.swing.table.*;
 
 /**
  *Esta clase se utliza para realizar la comparación y fusión de ambas bases de datos
@@ -18,8 +19,10 @@ public class ventana extends javax.swing.JFrame {
         initComponents();
     }
 
-    conectarMySQL MySQL=new conectarMySQL();//Se crea objeto MySQL para hacer cosas relacionadas a la base de datos
-    conectarSQLite SQLite=new conectarSQLite();//Se creo objeto SQLite para hacer cosas relacionadas a la base de datos
+    private conectarMySQL MySQL=new conectarMySQL();//Se crea objeto MySQL para hacer cosas relacionadas a la base de datos
+    private conectarSQLite SQLite=new conectarSQLite();//Se creo objeto SQLite para hacer cosas relacionadas a la base de datos
+    private DefaultTableModel modeloMysql,modeloSqlite;//Se utiliza para poder poner la infromación en las tablas tblMysql y tblSqlite
+    private int filaMysql=0, filaSqlite=0;//Se utilizan pasa saber que fila de las tablas tblMysql y/o tblSqlite ha sido seleccionada
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,7 +41,7 @@ public class ventana extends javax.swing.JFrame {
         btnDesconectarMysql = new javax.swing.JButton();
         btnMostrarMysql = new javax.swing.JButton();
         btnEditarMysql = new javax.swing.JButton();
-        tbnEliminarMysql = new javax.swing.JButton();
+        btnEliminarMysql = new javax.swing.JButton();
         pnlInsertarMysql = new javax.swing.JPanel();
         txtPlataformaMysql = new javax.swing.JTextField();
         lblPlataformaMysql = new javax.swing.JLabel();
@@ -74,7 +77,7 @@ public class ventana extends javax.swing.JFrame {
         txtIdSqlite = new javax.swing.JTextField();
         lblIdSqlite = new javax.swing.JLabel();
         btnEditarSqlite = new javax.swing.JButton();
-        tbnEliminarSqlite = new javax.swing.JButton();
+        btnEliminarSqlite = new javax.swing.JButton();
         pnlFusion = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblFusion = new javax.swing.JTable();
@@ -103,6 +106,11 @@ public class ventana extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblMysql.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblMysqlMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblMysql);
 
         btnConectarMysql.setText("Conectar");
@@ -127,16 +135,18 @@ public class ventana extends javax.swing.JFrame {
         });
 
         btnEditarMysql.setText("Editar");
+        btnEditarMysql.setEnabled(false);
         btnEditarMysql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarMysqlActionPerformed(evt);
             }
         });
 
-        tbnEliminarMysql.setText("Eliminar");
-        tbnEliminarMysql.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarMysql.setText("Eliminar");
+        btnEliminarMysql.setEnabled(false);
+        btnEliminarMysql.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnEliminarMysqlActionPerformed(evt);
+                btnEliminarMysqlActionPerformed(evt);
             }
         });
 
@@ -260,7 +270,7 @@ public class ventana extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlMysqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tbnEliminarMysql)
+                            .addComponent(btnEliminarMysql)
                             .addComponent(btnEditarMysql))
                         .addContainerGap())
                     .addComponent(pnlActualizarMysql, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -294,7 +304,7 @@ public class ventana extends javax.swing.JFrame {
                         .addGap(34, 34, 34)
                         .addComponent(btnEditarMysql)
                         .addGap(32, 32, 32)
-                        .addComponent(tbnEliminarMysql)))
+                        .addComponent(btnEliminarMysql)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -314,6 +324,11 @@ public class ventana extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tblSqlite.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSqliteMouseClicked(evt);
             }
         });
         jScrollPane2.setViewportView(tblSqlite);
@@ -451,16 +466,18 @@ public class ventana extends javax.swing.JFrame {
         );
 
         btnEditarSqlite.setText("Editar");
+        btnEditarSqlite.setEnabled(false);
         btnEditarSqlite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarSqliteActionPerformed(evt);
             }
         });
 
-        tbnEliminarSqlite.setText("Eliminar");
-        tbnEliminarSqlite.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminarSqlite.setText("Eliminar");
+        btnEliminarSqlite.setEnabled(false);
+        btnEliminarSqlite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tbnEliminarSqliteActionPerformed(evt);
+                btnEliminarSqliteActionPerformed(evt);
             }
         });
 
@@ -477,7 +494,7 @@ public class ventana extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlSqliteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(tbnEliminarSqlite)
+                            .addComponent(btnEliminarSqlite)
                             .addComponent(btnEditarSqlite))))
                 .addContainerGap())
             .addGroup(pnlSqliteLayout.createSequentialGroup()
@@ -509,7 +526,7 @@ public class ventana extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(btnEditarSqlite)
                         .addGap(32, 32, 32)
-                        .addComponent(tbnEliminarSqlite)))
+                        .addComponent(btnEliminarSqlite)))
                 .addContainerGap(9, Short.MAX_VALUE))
         );
 
@@ -613,6 +630,67 @@ public class ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     /**
+     * Este método se utilza para mostrar los registros de la base de datos MySQL
+     * Este método no necesita parámetros.
+     * Este método no devuelve valores.
+     */
+    private void mostrarMySQL(){
+        if(MySQL.estaVacio()==true){
+            System.out.println("La base de datos MySQL está vacía");
+        }else{
+            System.out.println("La base de datos MySQL no está vacía");
+            modeloMysql=(DefaultTableModel)tblMysql.getModel();//obtiene el modelo se la tabla tblMysql
+            limpiarTablaMysql();//limpia la tabla antes de mostrarla
+            MySQL.seleccionar(modeloMysql);//Muestra todos los registros de la base de datos MySQL
+        }
+    }
+    /**
+     * Este método se utiliza para limpiar la tabla tblMysql
+     * Este método no necesita parámetros
+     * Este método no devuelve valores
+     */
+    private void limpiarTablaMysql(){
+        if(tblMysql.getRowCount()>0){//Si la tabla está llena
+            for(int i=0;i<tblMysql.getRowCount();i++){
+                modeloMysql.removeRow(i);//elimina la fila 0 de la tabla
+               i-=1;//reinicia el indice de la fila a eliminar
+            }
+            tblMysql.setModel(modeloMysql);//pone el nuevo modelo vacío en la tabla
+        }
+    }
+    
+    /**
+     * Este método se utiliza para mostrar los registros de la base de datos SQLite
+     * Este método no necesita parámetros.
+     * Este método no devuelve valores.
+     */
+    private void mostrarSQLite(){
+        if(SQLite.estaVacio()==true){
+            System.out.println("La base de datos SQLite está vacía");
+        }else{
+            System.out.println("La base de datos SQLite no está vacía");
+            modeloSqlite=(DefaultTableModel)tblSqlite.getModel();//obtiene el modelo de la tabla tblMysql
+            limpiarTablaSQLite();//limpia la tabla antes de mostrarla
+            SQLite.seleccionar(modeloSqlite);//Muestra todos los registros de la base de datos SQLite
+        }
+    }
+    
+    /**
+     * Este método se utiliza para limpiar la tabla tblSqlite
+     * Este método no necesita parámetros
+     * Este método no devuelve valores
+     */
+    private void limpiarTablaSQLite(){
+        if(tblSqlite.getRowCount()>0){//Si la tabla está llena
+            for(int i=0;i<tblSqlite.getRowCount();i++){
+                modeloSqlite.removeRow(i);//elimina la fila 0 de la tabla
+               i-=1;//reinicia el indice de la fila a eliminar
+            }
+            tblSqlite.setModel(modeloSqlite);//pone el nuevo modelo vacío en la tabla
+        }
+    }
+    
+    /**
      * Se utiliza para hacer la conexion a la base de datos MySQL mediante un botón
      * @param evt evento que captura el click en el botón
      */
@@ -633,12 +711,7 @@ public class ventana extends javax.swing.JFrame {
      * @param evt evento que captura el click en el botón 
      */
     private void btnMostrarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarMysqlActionPerformed
-        if(MySQL.estaVacio()==true){
-            System.out.println("La base de datos MySQL está vacía");
-        }else{
-            System.out.println("La base de datos MySQL no está vacía");
-            tblMysql.setModel(MySQL.seleccionar());//MySQL.seleccionar();//Muestra todos los registros de la base de datos MySQL
-        }
+        mostrarMySQL();
     }//GEN-LAST:event_btnMostrarMysqlActionPerformed
 
     /**
@@ -653,6 +726,7 @@ public class ventana extends javax.swing.JFrame {
         MySQL.insertar(juego, plataforma);//Mete los datos a la base de datos
         txtJuegoMysql.setText(" ");
         txtPlataformaMysql.setText(" ");
+        mostrarMySQL();
     }//GEN-LAST:event_btnInsertarMysqlActionPerformed
 
     /**
@@ -677,6 +751,12 @@ public class ventana extends javax.swing.JFrame {
         txtPlataformaMysqlActualizar.setEnabled(false);
         btnActualizarMysql.setEnabled(false);
         //</editor-fold>
+        mostrarMySQL();//muestra todos los registros de la base de datos
+        tblMysql.setEnabled(true);
+        btnInsertarMysql.setEnabled(true);
+        btnDesconectarMysql.setEnabled(true);
+        btnConectarMysql.setEnabled(true);
+        btnMostrarMysql.setEnabled(true);
     }//GEN-LAST:event_btnActualizarMysqlActionPerformed
 
     /**
@@ -685,14 +765,16 @@ public class ventana extends javax.swing.JFrame {
      */
     private void btnEditarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarMysqlActionPerformed
         //<editor-fold defaultstate="collapsed" desc="Rellena los datos para actualizar">
-        /*txtIdMysql.setText(t);
-        txtJuegoMysqlActualizar.setText(t);
-        txtPlataformaMysqlActualizar.setText(t);*/
+        txtIdMysql.setText(tblMysql.getValueAt(filaMysql, 0).toString());
+        txtJuegoMysqlActualizar.setText(tblMysql.getValueAt(filaMysql,1).toString());
+        txtPlataformaMysqlActualizar.setText(tblMysql.getValueAt(filaMysql, 2).toString());
         //</editor-fold>
         //<editor-fold defaultstate="collapsed" desc="Activa los datos para actualizar">
         txtJuegoMysqlActualizar.setEnabled(true);
         txtPlataformaMysqlActualizar.setEnabled(true);
         btnActualizarMysql.setEnabled(true);
+        btnEliminarMysql.setEnabled(false);
+        tblMysql.setEnabled(false);
         //</editor-fold>
     }//GEN-LAST:event_btnEditarMysqlActionPerformed
     
@@ -700,9 +782,14 @@ public class ventana extends javax.swing.JFrame {
      * Se utiliza para eliminar registros en la base de datos mediante un botón
      * @param evt evento que captura el click en el botón 
      */
-    private void tbnEliminarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnEliminarMysqlActionPerformed
+    private void btnEliminarMysqlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarMysqlActionPerformed
         //Añadir libreria para notificaciones
-    }//GEN-LAST:event_tbnEliminarMysqlActionPerformed
+        int id=0;
+        
+        id=Integer.parseInt(tblMysql.getValueAt(filaMysql, 0).toString());
+        MySQL.eliminar(id);
+        mostrarMySQL();
+    }//GEN-LAST:event_btnEliminarMysqlActionPerformed
 
     /**
      * Se utiliza para hacer la conexion a la base de datos SQLite mediante un botón
@@ -725,7 +812,7 @@ public class ventana extends javax.swing.JFrame {
      * @param evt evento que captura el click en el botón
      */
     private void btnMostrarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarSqliteActionPerformed
-        SQLite.seleccionar();
+        mostrarSQLite();
     }//GEN-LAST:event_btnMostrarSqliteActionPerformed
 
     /**
@@ -739,6 +826,7 @@ public class ventana extends javax.swing.JFrame {
         SQLite.insertar(juego, plataforma);//Mete los datos a la base de datos
         txtJuegoSqlite.setText(" ");
         txtPlataformaSqlite.setText(" ");
+        mostrarSQLite();//Muestra 
     }//GEN-LAST:event_btnInsertarSqliteActionPerformed
 
     /**
@@ -763,6 +851,12 @@ public class ventana extends javax.swing.JFrame {
         txtPlataformaSqliteActualizar.setEnabled(false);
         btnActualizarSqlite.setEnabled(false);
         //</editor-fold>
+        mostrarSQLite();//muestra todos los registros de la base de datos
+        tblSqlite.setEnabled(true);
+        btnInsertarSqlite.setEnabled(true);
+        btnDesconectarSlite.setEnabled(true);
+        btnConectarSqlite.setEnabled(true);
+        btnConectarSqlite.setEnabled(true);
     }//GEN-LAST:event_btnActualizarSqliteActionPerformed
 
     /**
@@ -771,14 +865,16 @@ public class ventana extends javax.swing.JFrame {
      */
     private void btnEditarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarSqliteActionPerformed
         //<editor-fold defaultstate="collapsed" desc="Rellena los datos para actualizar">
-        /*txtIdSqlite.setText(t);
-        txtJuegoSqliteActualizar.setText(t);
-        txtPlataformaSqliteActualizar.setText(t);*/
+        txtIdSqlite.setText(tblSqlite.getValueAt(filaSqlite,0).toString());
+        txtJuegoSqliteActualizar.setText(tblSqlite.getValueAt(filaSqlite, 1).toString());
+        txtPlataformaSqliteActualizar.setText(tblSqlite.getValueAt(filaSqlite, 2).toString());
         //</editor-fold>
         //<editor-fold defaultstate="collapsed" desc="Activa los datos para actualizar">
         txtJuegoSqliteActualizar.setEnabled(true);
         txtPlataformaSqliteActualizar.setEnabled(true);
         btnActualizarSqlite.setEnabled(true);
+        btnEliminarSqlite.setEnabled(false);
+        tblSqlite.setEnabled(false);
         //</editor-fold>
     }//GEN-LAST:event_btnEditarSqliteActionPerformed
 
@@ -786,9 +882,53 @@ public class ventana extends javax.swing.JFrame {
      * Se utiliza para eliminar registros en la base de datos mediante un botón
      * @param evt evento que captura el click en el botón
      */
-    private void tbnEliminarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tbnEliminarSqliteActionPerformed
+    private void btnEliminarSqliteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarSqliteActionPerformed
        //Anadir libreria para notifiaciones 
-    }//GEN-LAST:event_tbnEliminarSqliteActionPerformed
+       int id=0;
+       
+       id=Integer.parseInt(tblSqlite.getValueAt(filaSqlite, 0).toString());
+       SQLite.eliminar(id);
+       mostrarSQLite();
+    }//GEN-LAST:event_btnEliminarSqliteActionPerformed
+
+    /**
+     * Este evento se utiliza para poder editar o eliminar registros de la base de datos MySQl
+     * @param evt evento que captura el click en el botón
+     */
+    private void tblMysqlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMysqlMouseClicked
+        filaMysql=tblMysql.getSelectedRow();//obtiene el índice de la fila seleccionada
+        //<editor-fold defaultstate="collapsed" desc="Desactivación de componentes">
+        btnInsertarMysql.setEnabled(false);
+        btnMostrarMysql.setEnabled(false);
+        btnConectarMysql.setEnabled(false);
+        btnDesconectarMysql.setEnabled(false);
+        //</editor-fold>
+        
+        //<editor-fold defaultstate="collapsed" desc="Activación de componentes">
+        btnEditarMysql.setEnabled(true);
+        btnEliminarMysql.setEnabled(true);
+        //</editor-fold>
+    }//GEN-LAST:event_tblMysqlMouseClicked
+
+    /**
+     * Este evento se utilza para poder editar o eliminar registros de la base de datos SQLite
+     * @param evt evento que captura el click en el botón
+     */
+    private void tblSqliteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSqliteMouseClicked
+        // TODO add your handling code here
+        filaSqlite=tblSqlite.getSelectedRow();//obtiene el índice de la fila seleccioanda
+        //<editor-fold defaultstate="collapsed" desc="Desactivación de componentes">
+        btnInsertarMysql.setEnabled(false);
+        btnMostrarSqlite.setEnabled(false);
+        btnConectarSqlite.setEnabled(false);
+        btnDesconectarSlite.setEnabled(false);
+        //</editor-fold>
+        
+        //<editor-fold defaultstate="collapsed" desc="Activación de componentes">
+        btnEditarSqlite.setEnabled(true);
+        btnEliminarSqlite.setEnabled(true);
+        //</editor-fold>
+    }//GEN-LAST:event_tblSqliteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -835,6 +975,8 @@ public class ventana extends javax.swing.JFrame {
     private javax.swing.JButton btnDesconectarSlite;
     private javax.swing.JButton btnEditarMysql;
     private javax.swing.JButton btnEditarSqlite;
+    private javax.swing.JButton btnEliminarMysql;
+    private javax.swing.JButton btnEliminarSqlite;
     private javax.swing.JButton btnFusionar;
     private javax.swing.JButton btnInsertarMysql;
     private javax.swing.JButton btnInsertarSqlite;
@@ -865,8 +1007,6 @@ public class ventana extends javax.swing.JFrame {
     private javax.swing.JTable tblFusion;
     private javax.swing.JTable tblMysql;
     private javax.swing.JTable tblSqlite;
-    private javax.swing.JButton tbnEliminarMysql;
-    private javax.swing.JButton tbnEliminarSqlite;
     private javax.swing.JTextField txtIdMysql;
     private javax.swing.JTextField txtIdSqlite;
     private javax.swing.JTextField txtJuegoMysql;

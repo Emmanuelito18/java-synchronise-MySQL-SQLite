@@ -105,7 +105,7 @@
                                   <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="tbnEliminarMysql" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnEliminarMysql" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnEditarMysql" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -147,7 +147,7 @@
                                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                                   <Component id="btnEditarMysql" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="tbnEliminarMysql" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarMysql" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -175,6 +175,9 @@
                           </Table>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblMysqlMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -205,17 +208,19 @@
                 <Component class="javax.swing.JButton" name="btnEditarMysql">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarMysqlActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="tbnEliminarMysql">
+                <Component class="javax.swing.JButton" name="btnEliminarMysql">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbnEliminarMysqlActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarMysqlActionPerformed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="pnlInsertarMysql">
@@ -430,7 +435,7 @@
                                   <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="tbnEliminarSqlite" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnEliminarSqlite" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnEditarSqlite" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -470,7 +475,7 @@
                                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                                   <Component id="btnEditarSqlite" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="tbnEliminarSqlite" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEliminarSqlite" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="9" max="32767" attributes="0"/>
@@ -498,6 +503,9 @@
                           </Table>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblSqliteMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -712,17 +720,19 @@
                 <Component class="javax.swing.JButton" name="btnEditarSqlite">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Editar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditarSqliteActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="tbnEliminarSqlite">
+                <Component class="javax.swing.JButton" name="btnEliminarSqlite">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tbnEliminarSqliteActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarSqliteActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
