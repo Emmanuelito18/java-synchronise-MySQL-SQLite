@@ -131,7 +131,7 @@ public class conectarSQLite {
      */
     public void actualizar(String nombreJuego, String plataforma, int id){
         try{
-            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombre=?,plataforma=?,fechaActualizado=datetime('now','localtime') WHERE id=?");
+            PreparedStatement actualizar=conexion.prepareStatement("UPDATE juegos SET nombreJuego=?,plataforma=?,fechaActualizado=datetime('now','localtime') WHERE id=?");
             actualizar.setString(1, nombreJuego);//Hace la actualización del nombre del juego
             actualizar.setString(2, plataforma);//Hace la actualización de la plataforma 
             actualizar.setInt(3, id);//Hace la búsqueda del número 
