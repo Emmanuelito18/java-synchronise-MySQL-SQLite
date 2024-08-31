@@ -569,6 +569,11 @@ public class ventana extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblFusion);
 
         btnComparar.setText("Comparar");
+        btnComparar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompararActionPerformed(evt);
+            }
+        });
 
         btnFusionar.setText("Fusionar");
 
@@ -929,6 +934,10 @@ public class ventana extends javax.swing.JFrame {
         btnEliminarSqlite.setEnabled(true);
         //</editor-fold>
     }//GEN-LAST:event_tblSqliteMouseClicked
+
+    private void btnCompararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompararActionPerformed
+        //código para hacer la comparación de la tablas
+    }//GEN-LAST:event_btnCompararActionPerformed
 
     /**
      * @param args the command line arguments
